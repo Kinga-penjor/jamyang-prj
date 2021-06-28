@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="row">
+	<div class="col-lg-12">
+		<div style="background-color: white;">
+			<div class="row">
+				<div class="col-lg-2"></div>
+				<div class="col-lg-8">
+					<form id="form" action="" method="POST">
+					   	{% csrf_token %}
+						<h5 style="text-align: center;">Feedback Form</h5><hr>
+						<div style="background: #b6d6cd; text-align: center;">
+							{%for message in messages%}
+								<hr><p style="font-size: 16px;" class="lead">{{message}}</h4><hr>
+							{% endfor %}
+						</div>
+						<label for="feedback_message">Any Feedback:</label>
+						<textarea class="form-control" id="feedback_message" name="feedback_message" cols="100"></textarea><br><br>
+						<button id="form-button" type="submit" class="btn btn-primary form-control">Submit</button>
+					</form><br><br>
+				</div>
+				<div class="col-lg-2"></div>
+			</div>
+		</div>
+	</div>
+</div>
+<br>
+{% endblock content %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+	<div class="row my-3">
+		<div class="col-md-12">
+   		<div style="background-color: white;">
+            <h5 style="text-align: center;">All Events</h5><hr>
+            {% for event in events %}
+            <div class="row">
+               <div class="col-md-1"></div>
+               <div class="col-md-4">
+                  <img class="img-thumbnail mx-2" src="{{event.event_image.url}}">
+               </div>
+               <div class="col-md-6">
+                  <p class="text-right lead">{{event.date}}</p>
+                  <p class="lead">{{event.event_name}}</p>
+                  <p class="lead font-weight-light" style="font-size: 15px;">{{event.event_description}}</p>
+               </div>
+               <div class="col-md-1"></div>
+            </div><hr>
+            {% endfor %}
+   		</div>
+		</div>
+	</div>
+
+{% endblock content %}
+
